@@ -1,0 +1,62 @@
+Act as an expert Full Stack Web Developer. Build a clean, minimalist, high-converting business website for a Janitorial and Commercial Cleaning company. 
+
+The site functionality should be inspired by janitorialnyc.com, but with a highly simplified, modern layout, plenty of whitespace, and a clean, professional, simple color palette.
+
+### 1. TECH STACK PREFERENCE
+- Frontend: ReactJS or Next.js (App Router)
+- Styling: Tailwind CSS
+- Icons: Lucide-react or React-Icons
+
+### 2. DESIGN & COLORS (Minimalist & Simple)
+- Primary Color: Deep Clean Slate / Dark Navy (e.g., Tailwind text-slate-900 / bg-slate-900) for headers and strong elements.
+- Accent Color: Subtle Eco Green or Clean Teal (e.g., emerald-600 or cyan-600) used sparingly only for buttons, links, and important highlights.
+- Backgrounds: Pure white (bg-white) and very soft gray tint (bg-slate-50) to distinguish sections.
+- Layout: Clean, block-based sections with generous padding, using strong typography instead of heavy graphics or generic stock background shapes.
+
+### 3. SINGLE-PAGE ARCHITECTURE & COMPONENTS
+Build a fully responsive Single Page Application (SPA) layout containing the following sections:
+
+#### A. Navigation Bar (Sticky)
+- Clean, text-based logo on the left (e.g., "[Your Brand Name]").
+- Simple text links on the right: Home, Services, Why Choose Us, Free Quote.
+- Desktop: Right-aligned links. Mobile: A clean hamburger toggle menu.
+
+#### B. Hero Section (Simple & Direct)
+- Left side (or centered): A clear, bold headline (e.g., "Professional Janitorial Services Made Simple"), a 2-line sub-headline explaining the commercial focus, and a prominent accent-colored CTA button labeled "Get a Free Quote" that smoothly scrolls to the quote form.
+- Right side: Either a clean, high-resolution minimalist image placeholder or an elegantly styled abstract SVG representation of a spotless workspace.
+
+#### C. Value Pillars Ribbon
+- A simple full-width bar with 3 clean, text-based value highlights focused on quality rather than company age (since this is a new, ambitious launch):
+  * "100% Licensed & Insured"
+  * "Tailored Cleaning Plans"
+  * "Owner-Supervised Quality"
+
+#### D. Core Services Section (Grid Layout)
+Create a responsive 3-column grid featuring clean, simple white cards with subtle shadow hover transitions. Each card needs a small, single-colored icon and concise text:
+1. Commercial Cleaning (Offices, Retail, Warehouses)
+2. Deep Carpet & Floor Care (Mopping, Waxing, Buffing)
+3. Specialized Disinfection & Sanitization
+
+#### E. Frequency & Scheduling Component
+A visually clean 4-column section showing standard flexible plans:
+- Daily Cleaning | Weekly Cleaning | Bi-Weekly Cleaning | Monthly Deep Clean
+
+#### F. Quote Request Form Component
+A prominent, simple interactive form section with a modern card design. Include fields for:
+- Full Name (Text input)
+- Company Name (Text input)
+- Email Address (Email input)
+- Phone Number (Tel input)
+- Facility Type (Dropdown select menu: Office, Retail, Warehouse, Medical, Other)
+- Service Frequency (Dropdown select menu: Daily, Weekly, One-time, Other)
+- Short Message/Notes (Textarea)
+- A prominent submit button that tracks state (e.g., Submitting... / Quote Requested Successfully!). Initialize the form state handler cleanly.
+
+#### G. Footer
+- Simple copyright notice, minimal contact info (Email/Phone), and links back to top.
+
+### 4. TECHNICAL EXPECTATIONS
+- Ensure the code is production-ready, fully modularized, and component-based.
+- Include smooth-scrolling behaviors for all inner anchors.
+- Ensure full mobile responsiveness using Tailwind's layout utilities (grid-cols-1 md:grid-cols-3, etc.).
+- Provide clean code comments separating the components.

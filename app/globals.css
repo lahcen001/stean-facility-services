@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy:   #0B1F33;
+  --teal:   #1FA3A3;
+  --silver: #D9E1E8;
+  --white:  #FFFFFF;
+  --lime:   #A7D129;
+  --mist:   #F4F7F9;  /* very light silver tint for section bg */
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Open Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #0B1F33;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F4F7F9; }
+::-webkit-scrollbar-thumb { background: #D9E1E8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #1FA3A3; }
