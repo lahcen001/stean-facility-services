@@ -19,7 +19,7 @@ export default function Logo({ variant = "dark", className = "" }: LogoProps) {
       </svg>
       <div className="leading-none">
         <span className="block text-[16px] font-black tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", color: text, letterSpacing: "-0.02em" }}>
-          VANGUARD
+          STEIN
         </span>
         <span className="block text-[9px] font-semibold tracking-[0.18em] uppercase mt-0.5" style={{ fontFamily: "Open Sans, sans-serif", color: sub }}>
           Janitorial

@@ -1,8 +1,0 @@
-<svg width="220" height="60" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="8"  y="5"  width="30" height="8"  rx="2" fill="#FFFFFF"/>
-  <rect x="4"  y="17" width="25" height="8"  rx="2" fill="#FFFFFF"/>
-  <rect x="8"  y="29" width="30" height="8"  rx="2" fill="#1FA3A3"/>
-  <rect x="34" y="5"  width="4"  height="32" rx="2" fill="#1FA3A3" opacity="0.35"/>
-  <text x="50" y="26" font-family="Montserrat, sans-serif" font-weight="900" font-size="20" letter-spacing="-0.4" fill="#FFFFFF">VANGUARD</text>
-  <text x="51" y="40" font-family="Open Sans, sans-serif" font-weight="600" font-size="10" letter-spacing="3" fill="#1FA3A3">JANITORIAL</text>
-</svg>

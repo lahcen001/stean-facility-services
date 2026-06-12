@@ -2,22 +2,21 @@
 
 import { useState, FormEvent, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle, Phone, Mail } from "lucide-react";
 
 type FS = "idle" | "submitting" | "success" | "error";
 interface FD { fullName:string; companyName:string; email:string; phone:string; facilityType:string; serviceFrequency:string; message:string; }
 const init: FD = { fullName:"", companyName:"", email:"", phone:"", facilityType:"", serviceFrequency:"", message:"" };
 
-const input: React.CSSProperties = {
-  width:"100%", padding:"12px 16px", background:"#FFFFFF",
-  border:"1px solid #D9E1E8", borderRadius:"12px",
-  fontSize:"14px", color:"#0B1F33", outline:"none",
+const inputStyle: React.CSSProperties = {
+  width:"100%", padding:"11px 14px", background:"#ffffff",
+  border:"1px solid #DDDDDD", borderRadius:"4px",
+  fontSize:"14px", color:"#333333", outline:"none",
   fontFamily:"Open Sans, sans-serif",
 };
-const label: React.CSSProperties = {
-  display:"block", fontSize:"11px", fontWeight:700, color:"#52606D",
-  marginBottom:"6px", letterSpacing:"0.08em", textTransform:"uppercase",
-  fontFamily:"Open Sans, sans-serif",
+const labelStyle: React.CSSProperties = {
+  display:"block", fontSize:"12px", fontWeight:700, color:"#1B3A6B",
+  marginBottom:"6px", fontFamily:"Open Sans, sans-serif",
 };
 
 export default function QuoteForm() {
@@ -47,94 +46,138 @@ export default function QuoteForm() {
   };
 
   if (status === "success") return (
-    <section id="quote" style={{ background: "#F4F7F9" }} className="py-16">
+    <section id="quote" style={{ background: "#F5F5F5" }} className="py-16">
       <div className="max-w-xl mx-auto px-6 text-center">
-        <div className="bg-white rounded-3xl p-12 shadow-xl" style={{ border:"1px solid #D9E1E8" }}>
-          <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6" style={{ background:"#1FA3A315" }}>
-            <CheckCircle2 className="w-8 h-8" style={{ color:"#1FA3A3" }} />
+        <div className="bg-white rounded-lg p-12 shadow-lg" style={{ border: "1px solid #DDDDDD" }}>
+          <div className="w-16 h-16 rounded flex items-center justify-center mx-auto mb-6"
+            style={{ background: "#4BAF4715" }}>
+            <CheckCircle2 className="w-8 h-8" style={{ color: "#4BAF47" }} />
           </div>
-          <h2 className="text-2xl font-extrabold mb-3" style={{ color:"#0B1F33", fontFamily:"Montserrat, sans-serif" }}>
+          <h2 className="text-2xl font-extrabold mb-3" style={{ color: "#1B3A6B", fontFamily: "Montserrat, sans-serif" }}>
             Quote Requested Successfully!
           </h2>
-          <p className="text-sm leading-relaxed mb-8" style={{ color:"#52606D", fontFamily:"Open Sans, sans-serif" }}>
-            Thank you, <strong style={{ color:"#0B1F33" }}>{form.fullName}</strong>! We&apos;ve received your request and
-            will reach out to <strong style={{ color:"#0B1F33" }}>{form.email}</strong> within 1 business day.
+          <p className="text-sm leading-relaxed mb-8" style={{ color: "#666666", fontFamily: "Open Sans, sans-serif" }}>
+            Thank you, <strong style={{ color: "#1B3A6B" }}>{form.fullName}</strong>! We&apos;ve received your request and
+            will reach out to <strong style={{ color: "#1B3A6B" }}>{form.email}</strong> within 1 business day.
           </p>
           <button onClick={() => { setForm(init); setStatus("idle"); }}
             className="text-sm font-semibold underline underline-offset-4"
-            style={{ color:"#1FA3A3", fontFamily:"Open Sans, sans-serif" }}>Submit another request</button>
+            style={{ color: "#4BAF47", fontFamily: "Open Sans, sans-serif" }}>Submit another request</button>
         </div>
       </div>
     </section>
   );
 
   return (
-    <section id="quote" style={{ background: "#F4F7F9" }} className="py-16">
+    <section id="quote" style={{ background: "#F5F5F5" }} className="py-16">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid lg:grid-cols-5 gap-10 items-start">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <p className="text-sm font-bold uppercase tracking-widest mb-2"
+            style={{ color: "#4BAF47", fontFamily: "Open Sans, sans-serif" }}>Free Estimate</p>
+          <h2 className="text-3xl font-extrabold mb-4"
+            style={{ color: "#1B3A6B", fontFamily: "Montserrat, sans-serif" }}>
+            Request a Commercial Cleaning Consultation
+          </h2>
+          <div className="w-16 h-1 mx-auto rounded mb-4" style={{ background: "#4BAF47" }} />
+          <p className="text-base max-w-xl mx-auto" style={{ color: "#666666", fontFamily: "Open Sans, sans-serif" }}>
+            Fill out the form and we&apos;ll put together a tailored cleaning proposal for your space — no obligation, no commitment.
+          </p>
+        </div>
 
-          {/* Left */}
-          <div className="lg:col-span-2">
-            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color:"#1FA3A3", fontFamily:"Open Sans, sans-serif" }}>Free Estimate</p>
-            <h2 className="text-4xl font-extrabold leading-tight mb-5" style={{ color:"#0B1F33", fontFamily:"Montserrat, sans-serif" }}>
-              Get Your Free<br />Custom Quote
-            </h2>
-            <p className="text-base leading-relaxed mb-8" style={{ color:"#52606D", fontFamily:"Open Sans, sans-serif" }}>
-              Fill out the form and I&apos;ll personally put together a tailored cleaning proposal for your space — no obligation.
-            </p>
-            <ul className="space-y-4">
-              {["No-commitment estimate","Response within 1 business day","Customized to your facility"].map(item => (
-                <li key={item} className="flex items-center gap-3 text-sm" style={{ color:"#52606D", fontFamily:"Open Sans, sans-serif" }}>
-                  <span className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background:"#1FA3A315" }}>
-                    <span className="w-2 h-2 rounded-full" style={{ background:"#1FA3A3" }} />
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+        <div className="grid lg:grid-cols-3 gap-10 items-start">
+          {/* Left sidebar */}
+          <div className="lg:col-span-1">
+            <div className="rounded-lg p-7 mb-6" style={{ background: "#1B3A6B" }}>
+              <h3 className="text-lg font-bold text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>
+                What to Expect
+              </h3>
+              <ul className="space-y-3">
+                {[
+                  "No-commitment estimate",
+                  "Response within 1 business day",
+                  "Customized to your facility",
+                  "Serving all of Northern NJ",
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm"
+                    style={{ color: "#ffffffcc", fontFamily: "Open Sans, sans-serif" }}>
+                    <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "#4BAF47" }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-lg p-7" style={{ background: "#ffffff", border: "1px solid #DDDDDD" }}>
+              <h3 className="text-base font-bold mb-4" style={{ color: "#1B3A6B", fontFamily: "Montserrat, sans-serif" }}>
+                Prefer to Call?
+              </h3>
+              <a href="tel:+18622707055" className="flex items-center gap-2.5 text-sm font-semibold mb-3 transition-colors"
+                style={{ color: "#1B3A6B", fontFamily: "Open Sans, sans-serif" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#4BAF47")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#1B3A6B")}
+              >
+                <Phone className="w-4 h-4" style={{ color: "#4BAF47" }} />
+                +1 (862) 270-7055
+              </a>
+              <a href="mailto:info@steinfacilityservices.com" className="flex items-center gap-2.5 text-sm transition-colors"
+                style={{ color: "#666666", fontFamily: "Open Sans, sans-serif" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#4BAF47")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#666666")}
+              >
+                <Mail className="w-4 h-4" style={{ color: "#4BAF47" }} />
+                info@steinfacilityservices.com
+              </a>
+            </div>
           </div>
 
           {/* Form */}
-          <div className="lg:col-span-3 bg-white rounded-3xl p-8 shadow-xl" style={{ border:"1px solid #D9E1E8" }}>
+          <div className="lg:col-span-2 bg-white rounded-lg p-8 shadow-md" style={{ border: "1px solid #DDDDDD" }}>
             {status === "error" && (
-              <div className="flex items-start gap-3 rounded-xl px-4 py-3 mb-5 text-sm"
-                style={{ background:"#FEF2F2", border:"1px solid #FECACA", color:"#DC2626" }}>
+              <div className="flex items-start gap-3 rounded px-4 py-3 mb-5 text-sm"
+                style={{ background: "#FEF2F2", border: "1px solid #FECACA", color: "#DC2626" }}>
                 <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />{err}
               </div>
             )}
             <form ref={ref} onSubmit={onSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
-                <div><label style={label}>Full Name</label><input name="fullName" type="text" required placeholder="Jane Smith" value={form.fullName} onChange={onChange} style={input} /></div>
-                <div><label style={label}>Company Name</label><input name="companyName" type="text" required placeholder="Acme Corp" value={form.companyName} onChange={onChange} style={input} /></div>
+                <div><label style={labelStyle}>Full Name *</label><input name="fullName" type="text" required placeholder="Jane Smith" value={form.fullName} onChange={onChange} style={inputStyle} /></div>
+                <div><label style={labelStyle}>Company Name *</label><input name="companyName" type="text" required placeholder="Acme Corp" value={form.companyName} onChange={onChange} style={inputStyle} /></div>
               </div>
               <div className="grid sm:grid-cols-2 gap-5">
-                <div><label style={label}>Email Address</label><input name="email" type="email" required placeholder="jane@company.com" value={form.email} onChange={onChange} style={input} /></div>
-                <div><label style={label}>Phone Number</label><input name="phone" type="tel" placeholder="(555) 000-0000" value={form.phone} onChange={onChange} style={input} /></div>
+                <div><label style={labelStyle}>Email Address *</label><input name="email" type="email" required placeholder="jane@company.com" value={form.email} onChange={onChange} style={inputStyle} /></div>
+                <div><label style={labelStyle}>Phone Number</label><input name="phone" type="tel" placeholder="(555) 000-0000" value={form.phone} onChange={onChange} style={inputStyle} /></div>
               </div>
               <div className="grid sm:grid-cols-2 gap-5">
-                <div><label style={label}>Facility Type</label>
-                  <select name="facilityType" required value={form.facilityType} onChange={onChange} style={input}>
+                <div><label style={labelStyle}>Facility Type *</label>
+                  <select name="facilityType" required value={form.facilityType} onChange={onChange} style={inputStyle}>
                     <option value="" disabled>Select type...</option>
-                    {["Office","Retail","Medical","Other"].map(o => <option key={o}>{o}</option>)}
+                    {["Office","Retail","Medical","Warehouse","Gym / Fitness","School","Industrial","Other"].map(o => <option key={o}>{o}</option>)}
                   </select>
                 </div>
-                <div><label style={label}>Service Frequency</label>
-                  <select name="serviceFrequency" required value={form.serviceFrequency} onChange={onChange} style={input}>
+                <div><label style={labelStyle}>Service Frequency *</label>
+                  <select name="serviceFrequency" required value={form.serviceFrequency} onChange={onChange} style={inputStyle}>
                     <option value="" disabled>Select frequency...</option>
                     {["Daily","Weekly","Bi-Weekly","Monthly","One-time","Other"].map(o => <option key={o}>{o}</option>)}
                   </select>
                 </div>
               </div>
-              <div><label style={label}>Notes / Special Requests</label>
-                <textarea name="message" rows={4} placeholder="Tell us about your facility size, specific needs, or any questions..."
-                  value={form.message} onChange={onChange} style={{ ...input, resize:"none" }} />
+              <div><label style={labelStyle}>Notes / Special Requests</label>
+                <textarea name="message" rows={4}
+                  placeholder="Tell us about your facility size, specific needs, or any questions..."
+                  value={form.message} onChange={onChange} style={{ ...inputStyle, resize:"none" }} />
               </div>
               <button type="submit" disabled={status === "submitting"}
-                className="w-full flex items-center justify-center gap-2.5 font-bold py-3.5 rounded-xl text-sm transition-all duration-200"
-                style={{ background: status === "submitting" ? "#C8E56A" : "#A7D129", color:"#0B1F33", fontFamily:"Montserrat, sans-serif" }}
+                className="w-full flex items-center justify-center gap-2.5 font-bold py-3.5 rounded text-sm transition-all duration-200"
+                style={{
+                  background: status === "submitting" ? "#7CC97A" : "#4BAF47",
+                  color:"#ffffff",
+                  fontFamily:"Montserrat, sans-serif"
+                }}
+                onMouseEnter={e => { if (status !== "submitting") (e.currentTarget.style.background = "#3D9039"); }}
+                onMouseLeave={e => { if (status !== "submitting") (e.currentTarget.style.background = "#4BAF47"); }}
               >
                 {status === "submitting" ? (
-                  <><span className="w-4 h-4 border-2 border-navy/30 border-t-navy rounded-full animate-spin" />Submitting...</>
+                  <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Submitting...</>
                 ) : (
                   <><Send className="w-4 h-4" />Request My Free Quote</>
                 )}
