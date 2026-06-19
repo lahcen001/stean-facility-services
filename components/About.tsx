@@ -69,7 +69,7 @@ export default function About() {
               your doors every day.
             </p>
             <p className="text-base leading-relaxed mb-5" style={{ color: "#555555", fontFamily: "Open Sans, sans-serif" }}>
-              Founded in <strong style={{ color: "#1B3A6B" }}>Kearny, New Jersey</strong>, Stein Facility Services was created to provide businesses
+              Founded in <strong style={{ color: "#1B3A6B" }}>Newark, New Jersey</strong>, Stein Facility Services was created to provide businesses
               with a dependable commercial cleaning partner focused on consistency, accountability, and
               exceptional service. We understand that business owners, property managers, and facility
               directors need more than a cleaning company — they need a team they can trust.

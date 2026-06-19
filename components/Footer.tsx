@@ -1,28 +1,24 @@
 "use client";
 
 import { Mail, Phone, MapPin } from "lucide-react";
-
-const serviceLinks = [
-  "Office Cleaning Services",
-  "Medical Office Cleaning",
-  "Retail Store Cleaning",
-  "Gym & Fitness Center Cleaning",
-  "School & Office Building Cleaning",
-  "Day Porter Services",
-  "Floor Care & Maintenance",
-  "Green Cleaning Solutions",
-];
+import { services } from "@/lib/services";
 
 const serviceAreas = [
-  "Kearny, NJ", "Newark, NJ", "Harrison, NJ",
-  "Jersey City, NJ", "Hoboken, NJ", "Secaucus, NJ",
-  "Lyndhurst, NJ", "North Arlington, NJ", "Belleville, NJ",
-  "Nutley, NJ", "Hudson County", "Essex County",
+  "Newark, NJ", "Harrison, NJ", "Jersey City, NJ",
+  "Hoboken, NJ", "Secaucus, NJ", "Lyndhurst, NJ",
+  "North Arlington, NJ", "Belleville, NJ", "Nutley, NJ",
+  "Hudson County", "Essex County", "Bergen County",
 ];
 
 export default function Footer() {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-  const go = (href: string) => document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  const go = (href: string) => {
+    if (window.location.pathname !== "/") {
+      window.location.href = `/${href}`;
+      return;
+    }
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <footer style={{ background: "#1B3A6B" }}>
@@ -40,7 +36,7 @@ export default function Footer() {
             />
             <p className="text-sm leading-relaxed mb-5"
               style={{ color: "#ffffffaa", fontFamily: "Open Sans, sans-serif" }}>
-              Locally owned commercial cleaning company serving Kearny and Northern New Jersey.
+              Locally owned commercial cleaning company serving Newark and Northern New Jersey.
               Licensed, insured, and committed to consistent results.
             </p>
             <div className="space-y-2.5">
@@ -63,7 +59,7 @@ export default function Footer() {
               <div className="flex items-start gap-2.5 text-sm"
                 style={{ color: "#ffffffaa", fontFamily: "Open Sans, sans-serif" }}>
                 <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "#4BAF47" }} />
-                Kearny, NJ &amp; Northern New Jersey
+                Newark, NJ &amp; Northern New Jersey
               </div>
             </div>
           </div>
@@ -73,17 +69,17 @@ export default function Footer() {
             <h4 className="text-sm font-bold uppercase tracking-widest mb-5"
               style={{ color: "#4BAF47", fontFamily: "Montserrat, sans-serif" }}>Our Services</h4>
             <ul className="space-y-2.5">
-              {serviceLinks.map(s => (
-                <li key={s}>
-                  <button onClick={() => go("#services")}
+              {services.map(s => (
+                <li key={s.slug}>
+                  <a href={`/services/${s.slug}`}
                     className="text-sm text-left transition-colors flex items-center gap-1.5"
                     style={{ color: "#ffffffaa", fontFamily: "Open Sans, sans-serif" }}
                     onMouseEnter={e => (e.currentTarget.style.color = "#4BAF47")}
                     onMouseLeave={e => (e.currentTarget.style.color = "#ffffffaa")}
                   >
                     <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: "#4BAF47" }} />
-                    {s}
-                  </button>
+                    {s.title}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -125,6 +121,14 @@ export default function Footer() {
                   >{label}</button>
                 </li>
               ))}
+              <li>
+                <a href="/careers"
+                  className="text-sm transition-colors"
+                  style={{ color: "#ffffffaa", fontFamily: "Open Sans, sans-serif" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#4BAF47")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "#ffffffaa")}
+                >Careers</a>
+              </li>
             </ul>
             <button onClick={() => go("#quote")}
               className="w-full py-3 text-sm font-bold rounded transition-colors duration-200"
@@ -140,10 +144,10 @@ export default function Footer() {
       <div style={{ background: "#152f57", borderTop: "1px solid #ffffff14" }}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-center" style={{ color: "#ffffff66", fontFamily: "Open Sans, sans-serif" }}>
-            &copy; {new Date().getFullYear()} Stein Facility Services. All rights reserved. | Kearny, NJ
+            &copy; {new Date().getFullYear()} Stein Facility Services. All rights reserved. | Newark, NJ
           </p>
           <p className="text-xs text-center" style={{ color: "#ffffff44", fontFamily: "Open Sans, sans-serif" }}>
-            Serving Kearny · Newark · Jersey City · Hoboken · Harrison · Bergen County · Hudson County · Essex County
+            Serving Newark · Jersey City · Hoboken · Harrison · Bergen County · Hudson County · Essex County
           </p>
           <button onClick={scrollTop}
             className="text-xs font-semibold transition-colors"

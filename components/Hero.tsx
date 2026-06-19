@@ -11,7 +11,7 @@ const slides = [
 
 const bullets = [
   "Licensed & Insured",
-  "Locally Owned & Operated — Kearny, NJ",
+  "Locally Owned & Operated — Newark, NJ",
   "Consistent, Dependable Service",
   "Customized Cleaning Programs",
 ];
@@ -43,7 +43,7 @@ export default function Hero() {
           <div>
             <p className="text-sm font-bold uppercase tracking-widest mb-3 animate-fadeIn"
               style={{ color: "#4BAF47", fontFamily: "Open Sans, sans-serif" }}>
-              Kearny, NJ &amp; Northern New Jersey
+              Newark, NJ &amp; Northern New Jersey
             </p>
             <h1 className="font-black leading-tight mb-6 text-white"
               style={{ fontSize: "clamp(2rem,4vw,3.2rem)", fontFamily: "Montserrat, sans-serif" }}>
@@ -55,7 +55,7 @@ export default function Hero() {
               style={{ color: "#ffffffcc", fontFamily: "Open Sans, sans-serif" }}>
               At Stein Facility Services, we provide reliable commercial cleaning and janitorial services
               designed to help businesses maintain clean, healthy, and professional facilities
-              throughout Kearny and Northern New Jersey.
+              throughout Newark and Northern New Jersey.
             </p>
             <ul className="space-y-2.5 mb-8">
               {bullets.map(b => (
@@ -121,7 +121,7 @@ export default function Hero() {
       {/* Green banner strip */}
       <div style={{ background: "#4BAF47" }}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-center gap-x-10 gap-y-2">
-          {["Office Cleaning", "Medical Facility Cleaning", "Retail Store Cleaning", "Gym & Fitness Cleaning", "Day Porter Services", "Floor Care"].map(s => (
+          {["Office Cleaning", "Medical Facility Cleaning", "Retail Cleaning", "Restaurant Cleaning", "Supermarket Cleaning", "Government Buildings"].map(s => (
             <span key={s} className="text-sm font-semibold text-white flex items-center gap-2"
               style={{ fontFamily: "Open Sans, sans-serif" }}>
               <span className="w-1.5 h-1.5 rounded-full bg-white opacity-70" />

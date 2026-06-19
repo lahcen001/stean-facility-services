@@ -23,6 +23,10 @@ export default function Navbar() {
 
   const go = (href: string) => {
     setMenuOpen(false);
+    if (window.location.pathname !== "/") {
+      window.location.href = `/${href}`;
+      return;
+    }
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -41,7 +45,7 @@ export default function Navbar() {
           </a>
           <span className="text-xs" style={{ color: "#ffffff66" }}>|</span>
           <span className="text-xs" style={{ color: "#ffffffcc", fontFamily: "Open Sans, sans-serif" }}>
-            Kearny, NJ &amp; Northern New Jersey
+            Newark, NJ &amp; Northern New Jersey
           </span>
         </div>
       </div>
@@ -69,6 +73,12 @@ export default function Navbar() {
                 onMouseLeave={e => { e.currentTarget.style.color = "#ffffffcc"; e.currentTarget.style.background = "transparent"; }}
               >{l.label}</button>
             ))}
+            <a href="/careers"
+              className="px-4 py-2 text-sm font-semibold transition-colors rounded"
+              style={{ fontFamily: "Open Sans, sans-serif", color: "#ffffffcc" }}
+              onMouseEnter={e => { e.currentTarget.style.color = "#ffffff"; e.currentTarget.style.background = "#ffffff15"; }}
+              onMouseLeave={e => { e.currentTarget.style.color = "#ffffffcc"; e.currentTarget.style.background = "transparent"; }}
+            >Careers</a>
             <button onClick={() => go("#quote")}
               className="ml-3 px-5 py-2 text-sm font-bold rounded transition-all duration-200"
               style={{ background: "#4BAF47", color: "#ffffff", fontFamily: "Montserrat, sans-serif" }}
@@ -94,6 +104,12 @@ export default function Navbar() {
               onMouseLeave={e => (e.currentTarget.style.color = "#ffffffcc")}
             >{l.label}</button>
           ))}
+          <a href="/careers"
+            className="text-left px-6 py-3.5 text-sm font-semibold border-b transition-colors"
+            style={{ color: "#ffffffcc", borderColor: "#ffffff0f", fontFamily: "Open Sans, sans-serif" }}
+            onMouseEnter={e => (e.currentTarget.style.color = "#4BAF47")}
+            onMouseLeave={e => (e.currentTarget.style.color = "#ffffffcc")}
+          >Careers</a>
           <div className="px-6 py-4">
             <button onClick={() => go("#quote")}
               className="w-full py-3 text-sm font-bold rounded"

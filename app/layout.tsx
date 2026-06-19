@@ -7,13 +7,13 @@ const siteUrl = "https://www.steinfacilityservices.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Stein Facility Services | Commercial Cleaning Services — Kearny, NJ",
+    default: "Stein Facility Services | Commercial Cleaning Services — Newark, NJ",
     template: "%s | Stein Facility Services",
   },
   description:
-    "Stein Facility Services provides reliable commercial janitorial and cleaning services throughout Kearny and Northern New Jersey. Licensed, insured, and locally owned. Offices, medical facilities, gyms, retail, schools, and more.",
+    "Stein Facility Services provides reliable commercial janitorial and cleaning services throughout Newark and Northern New Jersey. Licensed, insured, and locally owned. Offices, medical facilities, gyms, retail, schools, and more.",
   keywords: [
-    "commercial cleaning Kearny NJ",
+    "commercial cleaning Newark NJ",
     "janitorial services New Jersey",
     "office cleaning company NJ",
     "Stein Facility Services",
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Stein Facility Services",
-    title: "Stein Facility Services | Commercial Cleaning Services — Kearny, NJ",
+    title: "Stein Facility Services | Commercial Cleaning Services — Newark, NJ",
     description:
-      "Reliable commercial janitorial and cleaning services throughout Kearny and Northern New Jersey. Licensed, insured, and locally owned.",
+      "Reliable commercial janitorial and cleaning services throughout Newark and Northern New Jersey. Licensed, insured, and locally owned.",
     locale: "en_US",
     images: [
       {
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stein Facility Services | Commercial Cleaning Services — Kearny, NJ",
+    title: "Stein Facility Services | Commercial Cleaning Services — Newark, NJ",
     description:
-      "Reliable commercial janitorial and cleaning services throughout Kearny and Northern New Jersey. Licensed, insured, and locally owned.",
+      "Reliable commercial janitorial and cleaning services throughout Newark and Northern New Jersey. Licensed, insured, and locally owned.",
     images: ["/logo/vanguard-janitorial-logo.png"],
   },
   robots: {
@@ -75,7 +75,7 @@ const jsonLd = {
   name: "Stein Facility Services",
   alternateName: "Stein Janitorial",
   description:
-    "Stein Facility Services provides reliable commercial janitorial and cleaning services throughout Kearny and Northern New Jersey, including office cleaning, medical facility cleaning, gym cleaning, retail cleaning, day porter services, floor care, and green cleaning.",
+    "Stein Facility Services provides reliable commercial janitorial and cleaning services throughout Newark and Northern New Jersey, including office cleaning, medical facility cleaning, gym cleaning, retail cleaning, day porter services, floor care, and green cleaning.",
   url: siteUrl,
   telephone: "+1-862-270-7055",
   image: `${siteUrl}/logo/vanguard-janitorial-logo.png`,
@@ -83,7 +83,7 @@ const jsonLd = {
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Kearny",
+    addressLocality: "Newark",
     addressRegion: "NJ",
     addressCountry: "US",
   },
@@ -95,13 +95,11 @@ const jsonLd = {
     "Office Cleaning",
     "Medical Office Cleaning",
     "Retail Store Cleaning",
-    "Gym & Fitness Center Cleaning",
-    "School & Office Building Cleaning",
-    "Day Porter Services",
-    "Floor Care & Maintenance",
-    "Restroom Sanitization",
+    "Restaurant Cleaning",
+    "Supermarket Cleaning",
+    "Government Building Cleaning",
+    "Floor Cleaning & Maintenance",
     "Post-Construction Cleanup",
-    "Green Cleaning Solutions",
   ],
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",

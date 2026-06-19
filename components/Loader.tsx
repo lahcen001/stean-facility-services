@@ -6,8 +6,17 @@ export default function Loader() {
   const [hidden, setHidden] = useState(false);
   const [removed, setRemoved] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [shouldShow, setShouldShow] = useState(false);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem("hasVisited")) {
+      setRemoved(true);
+      return;
+    }
+    sessionStorage.setItem("hasVisited", "1");
+    setShouldShow(true);
+
     const start = Date.now();
     const tick = setInterval(() => {
       const pct = Math.min(100, Math.round(((Date.now() - start) / 2800) * 100));
@@ -19,7 +28,7 @@ export default function Loader() {
     return () => { clearInterval(tick); clearTimeout(hideTimer); clearTimeout(removeTimer); };
   }, []);
 
-  if (removed) return null;
+  if (removed || !shouldShow) return null;
 
   return (
     <div
