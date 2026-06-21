@@ -5,8 +5,8 @@ import emailjs from "@emailjs/browser";
 import { Send, CheckCircle2, AlertCircle, Phone, Mail } from "lucide-react";
 
 type FS = "idle" | "submitting" | "success" | "error";
-interface FD { fullName:string; email:string; phone:string; position:string; experience:string; availability:string; message:string; }
-const init: FD = { fullName:"", email:"", phone:"", position:"", experience:"", availability:"", message:"" };
+interface FD { fullName:string; email:string; phone:string; position:string; experience:string; availability:string; }
+const init: FD = { fullName:"", email:"", phone:"", position:"Professional Cleaner", experience:"", availability:"" };
 
 const inputStyle: React.CSSProperties = {
   width:"100%", padding:"11px 14px", background:"#ffffff",
@@ -146,10 +146,7 @@ export default function CareersForm() {
               <div className="grid sm:grid-cols-2 gap-5">
                 <div><label style={labelStyle}>Email Address *</label><input name="email" type="email" required placeholder="jane@email.com" value={form.email} onChange={onChange} style={inputStyle} /></div>
                 <div><label style={labelStyle}>Position Applying For *</label>
-                  <select name="position" required value={form.position} onChange={onChange} style={inputStyle}>
-                    <option value="" disabled>Select position...</option>
-                    {["Professional Cleaner","Day Porter","Floor Care Technician","Team Lead / Supervisor","Other"].map(o => <option key={o}>{o}</option>)}
-                  </select>
+                  <input name="position" type="text" readOnly value="Professional Cleaner" style={{ ...inputStyle, background: "#F5F5F5", color: "#666666" }} />
                 </div>
               </div>
               <div className="grid sm:grid-cols-2 gap-5">
@@ -165,11 +162,6 @@ export default function CareersForm() {
                     {["Full-time","Part-time","Evenings / Overnight","Weekends","Flexible"].map(o => <option key={o}>{o}</option>)}
                   </select>
                 </div>
-              </div>
-              <div><label style={labelStyle}>Tell Us About Yourself</label>
-                <textarea name="message" rows={4}
-                  placeholder="Share any relevant experience, certifications, or questions you have..."
-                  value={form.message} onChange={onChange} style={{ ...inputStyle, resize:"none" }} />
               </div>
               <button type="submit" disabled={status === "submitting"}
                 className="w-full flex items-center justify-center gap-2.5 font-bold py-3.5 rounded text-sm transition-all duration-200"
