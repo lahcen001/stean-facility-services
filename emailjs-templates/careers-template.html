@@ -1,0 +1,56 @@
+<!--
+  EmailJS template for the Careers Application Form (components/CareersForm.tsx)
+  Used with NEXT_PUBLIC_EMAILJS_CAREERS_TEMPLATE_ID
+
+  Setup:
+  1. Go to https://dashboard.emailjs.com/admin/templates
+  2. Create a new template
+  3. Set "Subject" to: New Job Application from {{fullName}}
+     (EmailJS defaults this to "OTP for your [Company Name] authentication" —
+     you MUST change it manually, it is not part of the HTML body below)
+  4. Set "To Email" to your inbox (e.g. info@steinfacilityservices.com) — NOT {{email}}
+  5. Set "From Name" to {{fullName}} and "Reply To" to {{email}}
+  6. Paste the HTML below into the template Content (HTML mode)
+  7. Save and copy the Template ID into NEXT_PUBLIC_EMAILJS_CAREERS_TEMPLATE_ID
+-->
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
+  <div style="background: #1B3A6B; padding: 24px 32px;">
+    <h1 style="color: #ffffff; font-size: 20px; margin: 0;">New Job Application</h1>
+    <p style="color: #ffffffcc; font-size: 13px; margin: 4px 0 0;">Stein Facility Services Careers</p>
+  </div>
+
+  <div style="padding: 28px 32px;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 14px; color: #333333;">
+      <tr>
+        <td style="padding: 10px 0; border-bottom: 1px solid #EEEEEE; font-weight: bold; width: 160px; color: #1B3A6B;">Full Name</td>
+        <td style="padding: 10px 0; border-bottom: 1px solid #EEEEEE;">{{fullName}}</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px 0; border-bottom: 1px solid #EEEEEE; font-weight: bold; color: #1B3A6B;">Email</td>
+        <td style="padding: 10px 0; border-bottom: 1px solid #EEEEEE;">
+          <a href="mailto:{{email}}" style="color: #4BAF47; text-decoration: none;">{{email}}</a>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px 0; border-bottom: 1px solid #EEEEEE; font-weight: bold; color: #1B3A6B;">Phone</td>
+        <td style="padding: 10px 0; border-bottom: 1px solid #EEEEEE;">{{phone}}</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px 0; border-bottom: 1px solid #EEEEEE; font-weight: bold; color: #1B3A6B;">Position Applying For</td>
+        <td style="padding: 10px 0; border-bottom: 1px solid #EEEEEE;">{{position}}</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px 0; border-bottom: 1px solid #EEEEEE; font-weight: bold; color: #1B3A6B;">Cleaning Experience</td>
+        <td style="padding: 10px 0; border-bottom: 1px solid #EEEEEE;">{{experience}}</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px 0; border-bottom: 1px solid #EEEEEE; font-weight: bold; color: #1B3A6B;">Availability</td>
+        <td style="padding: 10px 0; border-bottom: 1px solid #EEEEEE;">{{availability}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="background: #F5F5F5; padding: 16px 32px; font-size: 12px; color: #999999;">
+    This message was sent from the Careers application form at steinfacilityservices.com/careers
+  </div>
+</div>

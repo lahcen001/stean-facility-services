@@ -151,7 +151,7 @@ export default function QuoteForm() {
                 <div><label style={labelStyle}>Facility Type *</label>
                   <select name="facilityType" required value={form.facilityType} onChange={onChange} style={inputStyle}>
                     <option value="" disabled>Select type...</option>
-                    {["Office","Retail","Medical","Warehouse","Gym / Fitness","School","Industrial","Other"].map(o => <option key={o}>{o}</option>)}
+                    {["Office","Medical Office","Retail Store","Restaurant","Supermarket","Government Building","Floor Cleaning","Post-Construction","Other"].map(o => <option key={o}>{o}</option>)}
                   </select>
                 </div>
                 <div><label style={labelStyle}>Service Frequency *</label>
